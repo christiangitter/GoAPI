@@ -1,23 +1,18 @@
 package main
 
-import(
-	"net/http"
+import (
+	"GoAPI/views"
 	"encoding/json"
-) 
+	"net/http"
+)
 
-// Response-struct for JSON-response
-type Response struct {
-	Code int `json:"code"`
-	Body interface{} `json:"body"`
-}
-
-//main-function
+// main-function
 func main() {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodGet {
-			data := Response{
+			data := views.Response{
 				Code: http.StatusOK,
 				Body: "healthy",
 			}
