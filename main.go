@@ -5,11 +5,13 @@ import(
 	"encoding/json"
 ) 
 
+// Response-struct for JSON-response
 type Response struct {
 	Code int `json:"code"`
 	Body interface{} `json:"body"`
 }
 
+//main-function
 func main() {
 	mux := http.NewServeMux()
 
