@@ -13,6 +13,7 @@ func healthCheck() http.HandlerFunc {
 				Code: http.StatusOK,
 				Body: "healthy",
 			}
+			w.WriteHeader(http.StatusOK)
 			json.NewEncoder(w).Encode(data)
 		}
 	}
