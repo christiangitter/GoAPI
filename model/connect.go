@@ -8,6 +8,8 @@ import (
 	_ "github.com/lib/pq"
 )
 
+var con *sql.DB
+
 // In this package we create the database connection
 
 func Connect() *sql.DB {
@@ -26,5 +28,6 @@ func Connect() *sql.DB {
 	}
 
 	fmt.Println("Successfully connected!")
+	con = db
 	return db
 }
