@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-func Create() error {
+func Create(username, mail string) error {
 	// Prepare the SQL statement.
 	stmt, err := con.Prepare("INSERT INTO users(username, mail) VALUES($1, $2)")
 	if err != nil {
@@ -13,7 +13,7 @@ func Create() error {
 	}
 
 	// Execute the SQL statement.
-	_, err = stmt.Exec("John Doe", "johndoe@example.com")
+	_, err = stmt.Exec(username, mail)
 	if err != nil {
 		log.Fatal(err)
 	}
