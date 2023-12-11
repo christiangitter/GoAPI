@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"GOrepos/GoAPI/views"
+	"GoAPI/views"
 	"encoding/json"
 	"net/http"
 )

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"GOrepos/GoAPI/controller"
-	"GOrepos/GoAPI/model"
+	"GoAPI/controller"
+	"GoAPI/model"
 	"log"
 	"net/http"
 )
