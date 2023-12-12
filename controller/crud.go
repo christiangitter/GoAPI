@@ -37,3 +37,18 @@ func readAll() http.HandlerFunc {
 		}
 	}
 }
+
+func readByName() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodGet {
+			username := r.URL.Query().Get("username")
+			data, err := model.ReadbyName(username)
+			if err != nil {
+				w.WriteHeader(http.StatusInternalServerError)
+				return
+			}
+			w.WriteHeader(http.StatusOK)
+			json.NewEncoder(w).Encode(data)
+		}
+	}
+}

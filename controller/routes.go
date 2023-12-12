@@ -9,5 +9,6 @@ func Register() *http.ServeMux {
 	mux.HandleFunc("/health", healthCheck())
 	mux.HandleFunc("/create", create())
 	mux.HandleFunc("/readAll", readAll())
+	mux.HandleFunc("/readUser", readByName())
 	return mux
 }
