@@ -23,3 +23,17 @@ func create() http.HandlerFunc {
 		}
 	}
 }
+
+func readAll() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodGet {
+			data, err := model.ReadAll()
+			if err != nil {
+				w.WriteHeader(http.StatusInternalServerError)
+				return
+			}
+			w.WriteHeader(http.StatusOK)
+			json.NewEncoder(w).Encode(data)
+		}
+	}
+}
